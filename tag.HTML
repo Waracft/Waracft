@@ -1,0 +1,70 @@
+import random
+
+# Dictionary containing HTML tags and their descriptions
+html_tags = {
+    'html': 'Defines the root of an HTML document',
+    'head': 'Contains meta-information about the HTML document',
+    'title': 'Defines the title of the HTML document',
+    'meta': 'Provides metadata about the HTML document',
+    'body': 'Defines the document\'s body',
+    'p': 'Defines a paragraph',
+    'br': 'Defines a line break',
+    'h1': 'Defines a large heading',
+    'h2': 'Defines a medium heading',
+    'h3': 'Defines a small heading',
+    'span': 'Defines a section in a document',
+    'div': 'Defines a division or a section in an HTML document',
+    'table': 'Defines a table',
+    'tr': 'Defines a row in a table',
+    'td': 'Defines a cell in a table',
+    'ol': 'Defines an ordered list',
+    'li': 'Defines a list item',
+    'ul': 'Defines an unordered list',
+    'form': 'Defines an HTML form',
+    'input': 'Defines an input control',
+    'select': 'Defines a drop-down list',
+    'textarea': 'Defines a multiline input control',
+    'iframe': 'Defines an inline frame',
+    'img': 'Defines an image'
+}
+
+# Function to generate multiple-choice questions
+def generate_questions(tags, num_questions):
+    questions = []
+    for _ in range(num_questions):
+        tag = random.choice(list(tags.keys()))
+        description = tags[tag]
+        incorrect_options = random.sample(list(tags.values()), 3)
+        incorrect_options.append(description)
+        random.shuffle(incorrect_options)
+        question = f"What does the '{tag}' tag do?"
+        options = {
+            'A': incorrect_options[0],
+            'B': incorrect_options[1],
+            'C': incorrect_options[2],
+            'D': incorrect_options[3]
+        }
+        correct_answer = [k for k, v in options.items() if v == description][0]
+        questions.append((question, options, correct_answer))
+    return questions
+
+# Function to display questions
+def display_questions(questions):
+    for i, (question, options, correct_answer) in enumerate(questions, 1):
+        print(f"Question {i}: {question}")
+        for option, description in options.items():
+            print(f"{option}) {description}")
+        print()
+
+# Generate 10 multiple-choice questions
+num_questions = 10
+questions = generate_questions(html_tags, num_questions)
+
+# Display questions
+print("HTML Tags Multiple Choice Exercise:")
+display_questions(questions)
+
+# Provide standard answers
+print("\nStandard Answers:")
+for i, (_, _, correct_answer) in enumerate(questions, 1):
+    print(f"Question {i}: Correct answer is {correct_answer}.")
