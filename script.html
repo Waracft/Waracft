@@ -1,0 +1,38 @@
+<script>
+let a = [];
+let associative = {id:”D10755541”,name:”linjirun”};
+let y =  {“id”:’D10755541”,”name”:”linjirun”};
+let z =  {id:”D10755541”,”last name”:”linjirun”};
+let w = {“linjirun”:2323434,”Scott cave”:34322122};
+
+w[“johnson”] = 23543221;
+document.write(w[“john smith”]);
+for (let key in w)
+   document.write(“key=“ + key +”,value=“ + w[key] +”<br>”);
+//for (let v of w)  document.write(“value=“ + v +”<br>”);
+
+for (let key in w)
+    if (w[key] == 34322122)
+          document.write(key + “has 34322122<br>”);
+
+document.write(“size of w = “+ w.length + “<br>”);
+var x = 0;
+var game = {
+x:1,
+y:2,
+move:function(u,v){document.write(game.x + “,” + game.y+”<br>”);}
+}
+game.move(1,2);
+
+game.move = function(u,v){ }
+
+settimeout(function name,2000);// 2000 //scheduled task
+settimeout(function(){….},1500);
+settimeout(“Graeme.move(“ + x + “,” + y + “)”,2333);
+var a =[3,4,5,2,1];
+document.write(a[i])
+
+cleartimeout(h);
+
+let handle = setlnterval(function(){},2000);
+</script>
